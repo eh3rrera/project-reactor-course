@@ -21,7 +21,7 @@
 title: Project Reactor Course
 description: >- # this means to ignore newlines until "baseurl:"
   In this course, you'll learn how to use Project Reactor to program in a non-blocking, reactive way.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/project-reactor-course" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: eh3rrera
 github_username:  eh3rrera
