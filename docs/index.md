@@ -20,3 +20,7 @@ In this course, you'll learn how to use Project Reactor to program in a non-bloc
 
 Soon...
 
+## Changelog
+
+### 2022-05-24
+Added content of module 01 - Introduction to Reactive Programming

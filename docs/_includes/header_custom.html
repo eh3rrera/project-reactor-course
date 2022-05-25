@@ -1,0 +1,18 @@
+<a style="cursor: pointer" class="site-button js-toggle-dark-mode">Dark theme</a>
+
+<script>
+const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+const searchInput = document.querySelector('.search-input');
+
+jtd.addEvent(toggleDarkMode, 'click', function(){
+  if (jtd.getTheme() === 'dark') {
+    jtd.setTheme('light');
+    toggleDarkMode.textContent = 'Dark theme';
+    searchInput.style.removeProperty('color');
+  } else {
+    jtd.setTheme('dark');
+    toggleDarkMode.textContent = 'Light theme';
+    searchInput.style.color = '#e6e1e8';
+  }
+});
+</script>
