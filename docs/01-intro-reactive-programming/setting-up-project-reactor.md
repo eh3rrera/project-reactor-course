@@ -36,13 +36,13 @@ Reactor Core runs on Java 8 and above.
 
 I'll use Java 17. I prefer long-term support releases such as Java 8, 11, or 17, but don't worry too much about that. All the demos of this course should run on Java 8 and above.
 
-About the IDE, I'm going to use [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/#section=mac), but you can use any other IDE you prefer.
+About the IDE, I'm going to use [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/), but you can use any other IDE you prefer.
 
 As the build tool, I'm going to use Maven, but again, you can use Gradle or any other tool you want.
 
 All right, we're going to need an empty Maven project. 
 
-You can use the one I set up for you in the GitHub repository of this course.
+You can use the one I set up for you in the [GitHub repository of this course](https://github.com/eh3rrera/project-reactor-course).
 
 In the 01 folder, you can find two directories, after and before.
 
@@ -121,12 +121,38 @@ If you expand the `reactive-streams` dependency, you'll see the interfaces descr
 - `Subscriber`
 - `Subscription`
 
-And the class `FlowAdapters`, that contains methods to convert instances that implement these interfaces, from the Reactive Streams API to the Java 9 Flow API and vice versa.
+And the class `FlowAdapters`, that contains methods to convert instances that implement these interfaces from the Reactive Streams API to the Java 9 Flow API and vice versa.
+
+Finally, in the `pom.xml` file, add a dependency to JUnit Jupiter API with a test scope:
+```xml
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.8.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
+And load the changes.
+
+The examples of this course will be organized as method of unit test classes.
+
+So, in the test directory, under the package `net.eherrera.reactor`, there's class name `TestCheck`. Add a test method with the corresponding import statements. It should look like this:
+```java
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TestCheck {
+    @Test
+    void test() {
+        System.out.println("All good");
+        assertTrue(true);
+    }
+}
+```
+
+If you run the class, the test should pass and the message `All good` should be printed.
 
 All right, now we're ready to start learning Reactor's core features.
-
-
-
-
 
 

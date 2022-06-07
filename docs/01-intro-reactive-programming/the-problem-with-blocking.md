@@ -45,7 +45,7 @@ Well, not always.
 
 What if the number of concurrent users keeps increasing until there are no more free threads?
 
-Roughly speaking, at any given time, one CPU can handle one thread.
+Roughly speaking, at any given time, one CPU core can handle one thread ([multithreading](https://docs.oracle.com/cd/E19253-01/816-5137/mtintro-25092/index.html) is just the CPU switching execution between threads).
 
 But there are two more important things to consider.
 
