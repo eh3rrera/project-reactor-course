@@ -12,23 +12,25 @@ In the [GitHub repository of this course](https://github.com/eh3rrera/project-re
 
 All right.
 
-Until now, we've been talking about streams and sequences. But I want you to think of `Mono` and `Flux` as containers of values of a certain type (`T`). Zero or one in the case of Mono:
-[INSERT IMAGE]
+Until now, we've been talking about streams and sequences. But I want you to think of `Mono` and `Flux` as containers of values of a certain type (`T`). Zero or one in the case of `Mono`:
+
+![Mono as container](images/50.png)
 
 And from zero to N (actually, to `Long.MAX_VALUE`) in the case of `Flux`:
-[INSERT IMAGE]
 
-This will help you to grasp some concepts more easily later, so it's better to think this way since the beginning.
+![Flux as container](images/51.png)
+
+It's better to think this way since the beginning, as it will help you grasp some concepts more easily later on.
 
 This way, to create these containers and put elements into them, there are many static factory methods available.
 
-Let's start with the method `empty()`, it creates an empty container:
+Let's start with the method `empty()`:
 ```java
 Mono<String> emptyMono = Mono.empty();
 Flux<String> emptyFlux = Flux.empty();
 ```
 
-The above example creates an empty `Mono` of type `String` and an empty `Flux` of type `String`. If we subscribe to these publisher at this time, they will only emit a completion signal because they contain no values. However, if we ever put values into them, these values must be of type `String`.
+The above example creates an empty `Mono` of type `String` and an empty `Flux` of type `String`. If we subscribe to these publishers at this time, they will only emit a completion signal because they contain no values. However, if we ever put values into them, these values must be of type `String`.
 
 We can put individual elements at the time of creation of the publisher with the method `just`:
 ```java
@@ -36,9 +38,10 @@ Mono<Integer> integerMono = Mono.just(1);
 Flux<Integer> integerFlux = Flux.just(1, 2);
 ```
 
-Since `Mono` can only contain one element, at most, trying to pass more than one argument to this method will result in a compiler error:
+Since `Mono` can only contain one element at most, trying to pass more than one argument to this method will result in a compiler error:
 ```java
-Mono<Integer> integerMono = Mono.just(1, 2); // Compiler error
+ // Compiler error
+Mono<Integer> integerMono = Mono.just(1, 2);
 ```
 
 And here's where the differences start. Look at the definition of the `just()` method for `Mono` and `Flux`:
@@ -53,15 +56,17 @@ static <T> Flux<T> just(T data)
 
 For `Flux`, the overloaded version of `just()` allows us to create an empty container:
 ```java
-Flux<Integer> integerFlux = Flux.just(); // No error
+// No error
+Flux<Integer> integerFlux = Flux.just();
 ```
  
 But for `Mono`, the `just()` method always expects an argument:
 ```java
-Mono<Integer> integerMono = Mono.just(); // Error
+// Error
+Mono<Integer> integerMono = Mono.just();
 ```
 
-Of course, for clarity, it's better to use the `empty()` method. However, we don't always know from the beginning if there are elements to stream. Besides, `Mono` is supposed to accept zero or one element, right?
+Of course, for clarity, it's better to use the `empty()` method when we don't plan to publish any elements. However, we don't always know from the beginning if there are elements to publish. Besides, `Mono` is supposed to accept zero or one element, right?
 
 Well, for the case when you're not sure if there's a element, `Mono` has two versions of the method `justOrEmpty()`:
 ```java
@@ -79,25 +84,36 @@ Mono<Integer> emptyMono2 = Mono.justOrEmpty(null);
 
 Now, you can create create `Mono` and `Flux` objects from other objects with the methods `from*()`. Of course, due to the difference in cardinality, `Mono` and `Flux` have different `from*()` methods.
 
-These are the `from*()` methods for `Mono`:
+There are `from*()` methods to create a `Mono` from another `Publisher`:
 ```java
 // To create a Mono from another Publisher
 static <T> Mono<T> from(Publisher<? extends T> source)
 static <I> Mono<I> fromDirect(Publisher<? extends I> source)
+```
 
-// To create a Mono from a Callable, Runnable, or a Supplier
+To create a `Mono` from a `Callable`, `Runnable`, or a `Supplier`:
+```java
 static <T> Mono<T> fromCallable(Callable<? extends T> supplier)
 static <T> Mono<T> fromRunnable(Runnable runnable)
 static <T> Mono<T> fromSupplier(Supplier<? extends T> supplier)
-
-// To create a Mono from a CompletableFuture, eagerly or lazyly (with a Supplier)
+```
+    
+From a `CompletableFuture`, eagerly or lazily (with a `Supplier`):
+```java
 static <T> Mono<T> fromFuture(CompletableFuture<? extends T> future)
-static <T> Mono<T> fromFuture(Supplier<? extends CompletableFuture<? extends T>> futureSupplier)
+static <T> Mono<T> fromFuture(
+    Supplier<? extends CompletableFuture<? extends T>> futureSupplier
+)
+```
 
-// To create a Mono from a CompletionStage, eagerly or lazyly (with a Supplier)
-static <T> Mono<T> fromCompletionStage(CompletionStage<? extends T> completionStage)
+And from a `CompletionStage`, eagerly or lazily (with a `Supplier`):
+```java
 static <T> Mono<T> fromCompletionStage(
-                     Supplier<? extends CompletionStage<? extends T>> stageSupplier)
+    CompletionStage<? extends T> completionStage
+)
+static <T> Mono<T> fromCompletionStage(
+    Supplier<? extends CompletionStage<? extends T>> stageSupplier
+)
 ```
 
 I want to highlight three things here.
@@ -124,11 +140,12 @@ This way, we can use a `Runnable` to modify a value (as a side effect) asynchron
 ```java
 private int myValue = 0;
 // ...
-Mono<Void> runnableMono = Mono.fromRunnable(new Runnable() {
-    @Override
-    public void run() {
-        myValue++;
-    }
+Mono<Void> runnableMono = 
+    Mono.fromRunnable(new Runnable() {
+        @Override
+        public void run() {
+            myValue++;
+        }
 });
 ```
 
@@ -140,39 +157,51 @@ Mono<Void> runnableMono2 = Mono.fromRunnable(
 );
 ```
 
-And three. When creating a `Mono` from a [CompletableFuture](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html), which is also an implementation of [CompletionStage](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletionStage.html), we have the choice of creating the `Mono` either eagerly or lazily.
+And three. When creating a `Mono` from a [CompletableFuture](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html), which also implements the interface [CompletionStage](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletionStage.html), we have the choice of creating the `Mono` either eagerly or lazily.
 
 For example, the following code will print the string `Eager` because the `CompletableFuture` will be executed when the `Mono` is created:
 ```java
-Mono<String> futureMonoEager = Mono.fromFuture(CompletableFuture.supplyAsync(() -> {
-    System.out.println("Eager");
-    return "Hello from eager future!";
+Mono<String> futureMonoEager = Mono.fromFuture(
+    CompletableFuture.supplyAsync(() -> {
+        System.out.println("Eager");
+        return "Hello from eager future!";
 }));
 ```
 
 On the other hand, executing the following code (that uses a `Supplier` to provide the `CompletableFuture`) will not print anything because the `CompletableFuture` will be executed until we use the `Mono`:
 ```java
-Mono<String> futureMonoLazy = Mono.fromFuture(() -> CompletableFuture.supplyAsync(() -> {
-    System.out.println("Lazy");
-    return "Hello from lazy future!";
+Mono<String> futureMonoLazy = Mono.fromFuture(
+    () -> CompletableFuture.supplyAsync(() -> {
+        System.out.println("Lazy");
+        return "Hello from lazy future!";
 }));
 ```
 
-About `Flux`, since it can emit more than one element, we can create one from the most common objects that represent or can contain many elements:
+About `Flux`, since it can emit more than one element, we can create one from the most common objects that represent or can contain many elements.
+
+For example, you can create a `Flux` from another `Publisher`:
 ```java
-// To create a Flux from another Publisher
 static <T> Flux<T> from(Publisher<? extends T> source)
+```
 
-// To create a Flux from an array
+From an array:
+```java
 static <T> Flux<T> fromArray(T[] array)
+```
 
-// To create a Flux from an Iterable
-static <T> Flux<T> fromIterable(Iterable<? extends T> it)
+From an `Iterable`:
+```java
+static <T> Flux<T> fromIterable(
+    Iterable<? extends T> it
+)
+```
 
-// To create a Flux from a Stream
+Or from a `Stream`:
+```java
 static <T> Flux<T> fromStream(Stream<? extends T> s)
-static <T> Flux<T> fromStream(Supplier<Stream<? extends T>> streamSupplier)
-
+static <T> Flux<T> fromStream(
+    Supplier<Stream<? extends T>> streamSupplier
+)
 ```
 
 Two things to highlight here.
@@ -202,15 +231,19 @@ So it doesn't matter if the stream is closed, each subscription gets a new strea
 
 In any case, with both methods, the stream will be executed lazily, until we subscribe to the `Flux`.
 
-Sometimes, this lazy behavior is useful. For example, when generating the elements of a `Mono`or `Flux`is the result of an expensive operation. Or if the elements can change depending on a certain condition.
+Sometimes, this lazy behavior is useful. For example, when generating the elements of a `Mono` or `Flux` is the result of an expensive operation. Or if the elements can change depending on a certain condition.
 
 For this, we have the `defer()` method:
 ```java
 // For Mono
-static <T> Mono<T> defer(Supplier<? extends Mono<? extends T>> supplier)
+static <T> Mono<T> defer(
+    Supplier<? extends Mono<? extends T>> supplier
+)
 
 // For Flux
-static <T> Flux<T> defer(Supplier<? extends Publisher<T>> supplier)
+static <T> Flux<T> defer(
+    Supplier<? extends Publisher<T>> supplier
+)
 ```
 
 These methods will execute the `Supplier` passed as an argument (to provide a `Publisher`) until a subscription is made. In other words, these methods will create the `Publisher` lazily, using any of the methods we've reviewed so far:
@@ -243,54 +276,71 @@ For most advanced usages, we also have the method `create()`:
 static <T> Mono<T> create(Consumer<MonoSink<T>> callback)
     
 // For Flux
-static <T> Flux<T> create(Consumer<? super FluxSink<T>> emitter)
-static <T> Flux<T> create(Consumer<? super FluxSink<T>> emitter, 
-                          FluxSink.OverflowStrategy backpressure)
+static <T> Flux<T> create(
+    Consumer<? super FluxSink<T>> emitter
+)
+static <T> Flux<T> create(
+    Consumer<? super FluxSink<T>> emitter, 
+    FluxSink.OverflowStrategy backpressure
+)
 ```
 
-Instead of returning a `Publisher` with a `Supplier` (as with the `defer()` method), you use a [MonoSink](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/MonoSink.html) or a [FluxSink](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/FluxSink.html) object passed as the argument of a [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html). These objects let you emit elements or generate signals through:
+Instead of returning a `Publisher` with a `Supplier` (as with the `defer()` method), you use a [MonoSink](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/MonoSink.html) or a [FluxSink](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/FluxSink.html) object passed as the argument of a [Consumer](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html). These objects let you emit elements or generate signals. 
+
+In the case of `MonoSink`, to complete with the given value:
 ```java
-// To complete with the given value
 void success(T value)
+```
 
-// To complete without any value
+To complete without any value:
+```java
 void success()
+```
     
-// To terminate with the given exception
+And to terminate with the given exception:
+```java
 void error(Throwable e)
 ```
 
-In the case of `MonoSink`. 
-
-And:
+For `FluxSink`, to emit a non-null element, generating an `onNext` signal:
 ```java
-// To emit a non-null element, generating an onNext signal
 FluxSink<T> next(T t)
+```
     
-// To fail the sequence, generating an onError signal
+To fail the sequence, generating an `onError` signal:
+```java
 void error(Throwable e)
+```
     
-// To terminate the sequence successfully, generating an onComplete signal
+To terminate the sequence successfully, generating an `onComplete` signal:
+```java
 void complete()
 ```
 
-For `FluxSink`.
+However, `Flux` also has a [generate()](https://projectreactor.io/docs/core/release/reference/#producing.generate) method for synchronous and one-by-one emissions.
 
-`Flux` also has a version of the `create()` method that takes an argument to specify how to handle backpressure), but there's also a [generate()](https://projectreactor.io/docs/core/release/reference/#producing.generate) method for synchronous and one-by-one emissions:
+For example, to programmatically create a `Flux` by generating signals one-by-one via a consumer callback:
 ```java
-// To programmatically create a Flux by generating signals one-by-one via a consumer callback
-static <T> Flux<T> generate(Consumer<SynchronousSink<T>> generator)
-    
-// To programmatically create a Flux by generating signals one-by-one via a consumer callback,
-// supplying an initial state value
-static <T,S> Flux<T> generate(Callable<S> stateSupplier, 
-                              BiFunction<S,SynchronousSink<T>,S> generator)
-    
-// To programmatically create a Flux by generating signals one-by-one via a consumer callback,
-// supplying an initial state value, and a final cleanup callback.
-static <T,S> Flux<T> generate(Callable<S> stateSupplier, 
-                              BiFunction<S,SynchronousSink<T>,S> generator, 
-                              Consumer<? super S> stateConsumer)
+static <T> Flux<T> generate(
+    Consumer<SynchronousSink<T>> generator
+)
+```
+
+To programmatically create a `Flux` by generating signals one-by-one via a consumer callback, supplying an initial state value:
+```java
+static <T,S> Flux<T> generate(
+    Callable<S> stateSupplier, 
+    BiFunction<S,SynchronousSink<T>,S> generator
+)
+```
+
+And to programmatically create a `Flux` by generating signals one-by-one via a consumer callback, supplying an initial state value, and a final cleanup callback:
+```java
+static <T,S> Flux<T> generate(
+    Callable<S> stateSupplier, 
+    BiFunction<S,SynchronousSink<T>,S> generator, 
+    Consumer<? super S> stateConsumer
+)
 ```
 
 We'll leave it at that for now. Probably, I'll write one or more articles later to explain in more detail the methods `defer` and `generate`.

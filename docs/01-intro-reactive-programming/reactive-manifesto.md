@@ -7,7 +7,7 @@ nav_order: 4
 
 # The Reactive Manifesto
 * * *
-You might have heard about the [Reactive Manifesto](https://www.reactivemanifesto.org), a document that describes a set of principles for designing systems known as Reactive Systems.
+You might have heard about the [Reactive Manifesto](https://www.reactivemanifesto.org), a document that describes a set of principles for designing reactive systems.
 
 These systems have the following characteristics:
 - Responsiveness. The system must provide fast and consistent response times.

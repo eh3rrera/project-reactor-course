@@ -7,18 +7,19 @@ nav_order: 1
 
 # The Reactive Streams Specification
 ---
-In the previous module, we talked about the [Reactive Streams specification](https://www.reactive-streams.org), a specification that defines a [set of standard interfaces](https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/org/reactivestreams/package-summary.html) for libraries that work with reactive (asynchronous) streams:
+In the previous module, we talked about the [Reactive Streams specification](https://www.reactive-streams.org), a specification that defines a [set of standard interfaces](https://www.reactive-streams.org/reactive-streams-1.0.4-javadoc/org/reactivestreams/package-summary.html) for libraries that work with reactive (asynchronous) streams:
+- `Processor`
 - `Publisher`
 - `Subscriber`
 - `Subscription`
-- `Processor`
 
 Here's a diagram that represents the relationship between `Publisher`, `Subscriber`, and `Subscription`:
-[INSERT IMAGE]
+
+![Diagram for Publisher, Subscriber, Subscription](images/37.png)
 
 Let's start with `Publisher`.
 
-According to its [javadoc](https://www.reactive-streams.org/reactive-streams-1.0.3-javadoc/org/reactivestreams/Publisher.html), the `Publisher` interface represents:
+According to its [javadoc](https://www.reactive-streams.org/reactive-streams-1.0.4-javadoc/org/reactivestreams/Publisher.html), the `Publisher` interface represents:
 > A provider of a potentially unbounded number of sequenced elements, publishing them according to the demand received from its Subscriber(s).
 
 Remember, in addition to being asynchronous, reactive streams have backpressure capabilities to control the number of elements received by the subscribers.
@@ -30,7 +31,7 @@ public interface Publisher<T> {
 }
 ```
 
-This method requests publishers to start streaming (pushing) data to the `Subscriber` passed as an argument. It can be called multiple times passing different `Subscriber` objects.
+This method requests publishers to start streaming (pushing) data to the `Subscriber` (or a superclass) instance passed as an argument. It can be called multiple times passing different `Subscriber` instances.
 
 Here's the definition of the `Subscriber` interface:
 ```java
@@ -59,9 +60,10 @@ public interface Subscription {
 As you can see, with a `Subscription` object, the `Subscriber` can control the number of requested elements or cancel the subscription.
 
 Here's the diagram again:
-[INSERT SAME DIAGRAM AS ABOVE]
 
-Notice that a `Subscription` object is tied to one `Publisher` and one `Subscriber`, and this object is not shared outside of the `Subscriber`. That's why the all methods of all these interfaces return `void`. Everything is passed as arguments to the appropriate methods.
+![Diagram for Publisher, Subscriber, Subscription](images/37.png)
+
+Notice that a `Subscription` object is tied to one `Publisher` and one `Subscriber`, and this object is not shared outside of the `Subscriber`. That's why all the methods of all these interfaces return `void`. Everything is passed as arguments to the appropriate methods.
 
 And just for completion, here's the definition of the `Processor` interface:
 ```java

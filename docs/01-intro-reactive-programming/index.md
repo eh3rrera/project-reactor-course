@@ -7,12 +7,12 @@ has_children: true
 
 # Introduction to Reactive Programming
 * * *
-In this module, we're going to review:
-- The problem with blocking execution
+In this module, you are going to learn:
+- The problem with blocking the execution of a program
 - What is reactive programming?
-- Programming in a non-blocking, asynchrounous, functional style
+- Programming in a non-blocking, asynchronous, functional style
 - How reactive programming is related to the Reactive Manifesto
-- What is Project Reactor and how to set it up in your project using Maven
+- What is Project Reactor and how to set it up using Maven
 
 You can find the code for this module [here](https://github.com/eh3rrera/project-reactor-course/tree/main/01).
 
@@ -23,5 +23,3 @@ You can find the code for this module [here](https://github.com/eh3rrera/project
 - [Reactive Manifesto](https://www.reactivemanifesto.org)
 - [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/)
 - [Project Reactor 3 Release Train BOM](https://mvnrepository.com/artifact/io.projectreactor/reactor-bom)
-
-**Note: This is a work-in-progress. I still have to add the images that accompany the text and the content is subject to change.**

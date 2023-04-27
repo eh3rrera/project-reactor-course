@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Asynchronous Sequences in Reactor
+title: Asynchronous Streams in Reactor
 parent: Working with Mono and Flux
 nav_order: 2
 ---
@@ -9,11 +9,13 @@ nav_order: 2
 ---
 I've been talking about streaming elements of data (plural), but streaming just one element (or even an empty stream) can be helpful sometimes.
 
-To make this cardinality distinction, in Reactor, we have a `Mono` object (publisher) that streams zero or one element.
-[INSERT IMAGE]
+To make this cardinality distinction, in Reactor, we have a `Mono` object (or publisher) that streams zero or one element.
 
-And a `Flux` object (publisher), to stream from zero to any number of elements.
-[INSERT IMAGE]
+![Stream one element](images/38.png)
+
+And a `Flux` object (or publisher), to stream from zero to any number of elements.
+
+![Stream many elements](images/39.png)
 
 Of course, nothing stops us from always using `Flux`, since this object can stream zero or one element just like `Mono`.
 
@@ -26,7 +28,8 @@ If you know that a publisher will not emit a value, the convention is to represe
 Also, `Mono` and `Flux` work in different ways.
 
 Since `Mono` objects emit at most one value, the method `onComplete()` is immediately called after `onNext(T)`.
-[INSERT IMAGE]
+
+![Diagram onNext(t) - onComplete()](images/40.png)
 
 For `Flux`, the method `onComplete()` is optional. Actually, all methods from the `Subscriber` are also optional for `Flux`:
 - If `onNext(T)` is the only method ever called, the stream will be infinite.
@@ -36,17 +39,19 @@ For `Flux`, the method `onComplete()` is optional. Actually, all methods from th
 
 Regarding operators, if they return a stream of zero or N elements, the result will be a `Flux`. For example, if you use the operator `concatWith` to concatenate two publishers, even if we're talking about two `Mono` publishers, the result will always be a `Flux`:
 ```java
-Flux<T>	concatWith(Publisher<? extends T> other)
+Flux<T> concatWith(Publisher<? extends T> other)
 ```
 
-Or, ff the result is a stream of zero or one element, the operator will return a `Mono`. For example, the operator `count`, to count the number of elements in a stream, always returns a `Mono<Long>`:
+Or, if the result is a stream of zero or one element, the operator will return a `Mono`. For example, the operator `count`, to count the number of elements in a stream, always returns a `Mono<Long>`:
 ```java
-Mono<Long>	count()
+Mono<Long> count()
 ```
     
 By the way, do you think the `count` operator makes sense in a `Mono` object?
 
-No, it doesn't. `Mono` objects always contain one element, so `Mono` doesn't have a `count` operator. 
+No, it doesn't. 
+
+`Mono` objects always contain one element, so `Mono` doesn't have a `count` operator. 
 
 In general, `Mono` provides only a subset of the operators that are available for `Flux`.
 
@@ -56,28 +61,41 @@ In general, `Mono` provides only a subset of the operators that are available fo
 
 The recommended way to learn about the API of these objects is through the reference documentation, rather than through the javadoc.
 
-However, on the javadoc, you'll find the so called marble diagrams for all the operators available for `Mono` and `Flux`, so you can understand how they work.
+However, on the javadoc, you'll find the so called "marble diagrams" for all the operators available for `Mono` and `Flux`. These diagrams will help you understand how the operators work. Here's an example of [a marble diagram](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html#subscribe-java.util.function.Consumer-):
+
+![Marble diagram](images/41.png)
 
 These horizontal lines represent the timeline of publisher. Time flows from left to right:
-[INSERT IMAGE]
+
+![Marble diagram - horizontal lines](images/42.png)
 
 When an element is emitted by the publisher, this is represented by a circle:
-[INSERT IMAGE]
 
-A dotted line indicates that the element goes through an operator, the text inside the box indicates the name of the operator and the  transformation it applies:
-[INSERT IMAGE]
+![Marble diagram - circle](images/43.png)
 
-Then, on the horizontal line below the operator box, the result of the transformation appears:
-[INSERT IMAGE]
+A dotted line indicates that the element goes through a transformation (operator):
 
-Finally, the vertical line indicates that the publisher has completed successfully:
-[INSERT IMAGE]
+![Marble diagram - dotted line](images/44.png)
+
+The text inside the box indicates the name of the operator and the transformation it applies:
+
+![Marble diagram - box](images/45.png)
+
+Then, below the operator box, the result of the transformation appears (if any):
+
+![Marble diagram - below box](images/46.png)
+
+The vertical line indicates that the publisher has completed successfully:
+
+![Marble diagram - vertical line](images/47.png)
 
 But if the publisher throws an error, the vertical line is replaced by an X:
-[INSERT IMAGE]
+
+![Marble diagram - X](images/48.png)
 
 For `Flux`, the only difference is that there are more elements (circles) in the timeline:
-[INSERT IMAGE]
+
+![Marble diagram - Flux](images/49.png)
 
 All right, now let's see how to create `Mono` and `Flux` publishers.
 

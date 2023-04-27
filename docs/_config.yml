@@ -32,7 +32,7 @@ plugins:
    - jekyll-remote-theme
    - jekyll-seo-tag
 #remote_theme: pmarsceill/just-the-docs
-remote_theme: just-the-docs/just-the-docs
+remote_theme: just-the-docs/just-the-docs@v0.5.0
 
 # Enable or disable the site search
 # Supports true (default) or false
