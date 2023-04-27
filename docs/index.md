@@ -25,8 +25,8 @@ If you've ever find yourself struggling with the complexities of managing thread
 Reactive programming is not that hard to learn. It's just a different way of doing things. This book has been designed for readers who are new to reactive programming, as well as those seeking to expand their existing skill set. It will provide you with a clear and structured path, leading you through the essential concepts and techniques necessary to unravel reactive programming using Project Reactor. By the end of this book, you will gained a deep understanding of reactive programming and how to use most of the operators that Project Reactor provides.
 
 It's completely free to read online, but if you want to support my work, you can buy the book on:
-  - Leanpub as EPUB and PDF (comming soon)
-  - Amazon as e-book and paperback (comming soon)
+  - [Leanpub as EPUB (PDF coming soon)](https://leanpub.com/unraveling-project-reactor)
+  - [Amazon as e-book (paperback coming soon)](https://www.amazon.com/dp/B0C3PWZH1Q)
 
 You can also find this book on [GitHub](https://github.com/eh3rrera/project-reactor-course), where you can download all the examples and exercises.
 
