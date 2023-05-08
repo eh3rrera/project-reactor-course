@@ -293,7 +293,7 @@ Flux<Integer> integerFlux =
 integerFlux
     .map(i -> i/(i-3))
     .onErrorReturn(
-        ArithmeticException.class, 
+        e -> e.getMessage().contains("3"), 
         0
     )
     .subscribe(
@@ -302,7 +302,7 @@ integerFlux
     );
 ```
 
-In this case, since the exception message doesn't contain the string `3`, the exception is caught by the consumer of the `subscription` method:
+In this case, since the exception message doesn't contain the string `3`, the exception is caught by the consumer of the `subscribe` method:
 ```
 0
 -2
@@ -829,7 +829,7 @@ Flux<T> onErrorStop()
 
 If an `onErrorContinue(BiConsumer)` variant has been used downstream, `onErrorStop` reverts to the default mode where errors are terminal events upstream. In other words, after `onErrorStop`, `onErrorContinue` will have no effect.
 
-This way, if we add to the above example the `onErrorStop` operator (after `onErrorStop` and before `onErrorContinue`):
+This way, if we add to the above example the `onErrorStop` operator (after `onErrorResume` and before `onErrorContinue`):
 ```java
 Flux<Integer> integerFlux = 
     Flux.just(1, 2, 3, 4, 5);

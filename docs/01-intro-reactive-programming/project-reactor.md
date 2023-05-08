@@ -89,7 +89,7 @@ You'll see all the dependencies this bill of materials manages:
 
 Artifacts follow a versioning scheme of `MAJOR`, instead of the year, `MINOR` and `PATCH-QUALIFIER`.
 
-So, back to our project, in the `pom.xml` file, we can import the BOM dependency in a `<dependencyManagement>` section:
+So, back to our project, in the `pom.xml` file, we can import the BOM dependency in the `<dependencyManagement>` section:
 ```xml
 <dependencyManagement> 
     <dependencies>

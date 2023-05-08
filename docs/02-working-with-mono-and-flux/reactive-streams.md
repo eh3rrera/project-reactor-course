@@ -31,7 +31,7 @@ public interface Publisher<T> {
 }
 ```
 
-This method requests publishers to start streaming (pushing) data to the `Subscriber` (or a superclass) instance passed as an argument. It can be called multiple times passing different `Subscriber` instances.
+This method requests publishers to start streaming (pushing) data to the `Subscriber` (of type `T` or a superclass of `T`) instance passed as an argument. It can be called multiple times passing different `Subscriber` instances.
 
 Here's the definition of the `Subscriber` interface:
 ```java

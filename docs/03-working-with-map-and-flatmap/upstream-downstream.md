@@ -30,7 +30,7 @@ Flux
 
 In this case, taking the `flatMap` operator as reference, the source `Flux` and the first `map` operator would be the upstream.
 
-Whereas the second `map` operator, as well as the `subscriber` operator, would be the downstream.
+Whereas the second `map` operator, as well as the `subscribe` operator, would be the downstream.
 
 Some operators will be affected by what happens upstream or downstream, so always review the documentation to look for references to these terms.
 

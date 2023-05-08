@@ -14,9 +14,9 @@ Here's the definition of this operator for `Mono`:
 Mono<T> subscribeOn(Scheduler scheduler)
 ```
 
-It runs `subscribe`, `onSubscribe` and `request` on a specified `Scheduler`.
+It runs `subscribe`, `onSubscribe`, and `request` on a specified `Scheduler`.
 
-For `Flux`, there are two versions of this operator, which also run `subscribe`, `onSubscribe` and `request` on a specified `Scheduler`:
+For `Flux`, there are two versions of this operator, which also run `subscribe`, `onSubscribe`, and `request` on a specified `Scheduler`:
 ```java
 Flux<T> subscribeOn(
     Scheduler scheduler

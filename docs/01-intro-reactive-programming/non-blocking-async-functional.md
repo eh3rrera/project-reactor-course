@@ -12,9 +12,9 @@ Going back to our grocery store example, imagine you go shopping for some fruit.
 ![Fruit market](images/23.png)
 
 After picking the fruit you want:
-- You wait for your turn to arrive at the checkout
-- The cashier tells you the price
-- You pay for it
+- You wait for your turn to arrive at the checkout.
+- The cashier tells you the price.
+- You pay for it.               
 - And get out of the store. 
 
 Let's say all this took around 10 minutes.

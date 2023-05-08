@@ -65,7 +65,7 @@ It will print information about the signals `onSubscribe`, `onNext`, and `onComp
 [ INFO] (main) | onComplete()
 ``` 
 
-However, if we want to *add* a customized behavior to these signals, Rector provides some hooks to do it.
+However, if we want to *add* a customized behavior to these signals, Reactor provides some hooks to do it.
 
 First, the hooks for `Mono<T>`.
 

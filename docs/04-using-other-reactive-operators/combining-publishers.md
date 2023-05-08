@@ -68,7 +68,7 @@ But remember, like `flatMap`, these operators don't guarantee the order of the o
 Flux<T> mergeWith(Publisher<? extends T> other)
 ```
 
-As you can see, it accepts a `Publisher`and returns a `Flux`, so it's used just like the `Flux` version.
+As you can see, it accepts a `Publisher` and returns a `Flux`, so it's used just like the `Flux` version.
 
 Back to `merge`, there are versions that take a `concurrency` and a `prefetch` argument:
 ```java
@@ -283,13 +283,13 @@ You can compare the relationship between `mergeSequential` and `concat` with the
 
 `concat` also has versions that get all the source sequences from a `Publisher` or an `Iterator`:
 ```java
-static <T> Flux<T>	concat(Publisher<? extends Publisher<? extends T>> sources)
-static <T> Flux<T>	concat(Iterable<? extends Publisher<? extends T>> sources)
+static <T> Flux<T> concat(Publisher<? extends Publisher<? extends T>> sources)
+static <T> Flux<T> concat(Iterable<? extends Publisher<? extends T>> sources)
 ```
 
 Take a `prefetch` argument:
 ```java
-static <T> Flux<T>	concat(
+static <T> Flux<T> concat(
     Publisher<? extends Publisher<? extends T>> sources, 
     int prefetch
 )
@@ -297,17 +297,17 @@ static <T> Flux<T>	concat(
 
 And to delay errors:
 ```java
-static <T> Flux<T>	concatDelayError(
+static <T> Flux<T> concatDelayError(
     Publisher<? extends T>... sources
 )
-static <T> Flux<T>	concatDelayError(
+static <T> Flux<T> concatDelayError(
     Publisher<? extends Publisher<? extends T>> sources
 )
-static <T> Flux<T>	concatDelayError(
+static <T> Flux<T> concatDelayError(
     Publisher<? extends Publisher<? extends T>> sources, 
     int prefetch
 )
-static <T> Flux<T>	concatDelayError(
+static <T> Flux<T> concatDelayError(
     Publisher<? extends Publisher<? extends T>> sources, 
     boolean delayUntilEnd, 
     int prefetch
@@ -360,7 +360,7 @@ Object[] toArray()
 List<Object> toList()
 ```
 
-The `zip` operator is available for `Mono` and `Flux`,
+The `zip` operator is available for `Mono` and `Flux`.
 
 Take a look at its [marble diagram for `Mono`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html#zip-reactor.core.publisher.Mono-reactor.core.publisher.Mono-):
 

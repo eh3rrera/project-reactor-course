@@ -138,7 +138,7 @@ Mono.defer(() -> Mono.just(getException()))
     );
 ```
 
-The reason I'm using `Mono.defer` is because this way the exception will be thrown lazily, at subscription time. Otherwise, the exception will be thrown eagerly, when the `Mono` is created, without having a chance to subscribe to it.
+The reason I'm using `Mono.defer` is because, this way, the exception will be thrown lazily, at subscription time. Otherwise, the exception will be thrown eagerly, when the `Mono` is created, without having a chance to subscribe to it.
 
 You can also execute an action when all elements have been published (notice that the arguments are optional):
 ```java
@@ -179,7 +179,7 @@ Flux.just(1, 2, 3)
 
 The [BaseSubscriber](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/BaseSubscriber.html) abstract class gives you more control by overriding some hooks (some are optional).
 
-Like this optional hook, executed after any of the termination events (like `SignalType.ON_ERROR`, `SignalType.ON_COMPLETE`, `SignalType.Cancel`, etc.):
+Like this optional hook, executed after any of the termination events (like `SignalType.ON_ERROR`, `SignalType.ON_COMPLETE`, `SignalType.CANCEL`, etc.):
 ```java
 protected void hookFinally(SignalType type)
 ```
@@ -209,4 +209,4 @@ And this hook, for further processing `onSubscribe`'s `Subscription`:
 protected void hookOnSubscribe(Subscription subscription)
 ```
 
-All right, now you're ready to start learning more about operators.
+All right, now you're ready to start learning about operators.

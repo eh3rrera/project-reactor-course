@@ -10,7 +10,7 @@ nav_order: 3
 
 In these exercises, you'll practice some of the concepts taught in this module.
 
-First, either create a new Java project, adding the `reactor-bom` and `reactor-core` dependencies to your build file (Maven or Gradle) or use the stub you can find at: [https://github.com/eh3rrera/project-reactor-course/tree/main/08/before/reactor-demo-exercises](https://github.com/eh3rrera/project-reactor-course/tree/main/08/before/reactor-demo-exercises)
+First, either create a new Java project, adding the `reactor-bom` and `reactor-core` dependencies to your build file (Maven or Gradle) or use the stub you can find at: [https://github.com/eh3rrera/project-reactor-course/tree/main/08/before/reactor-demo-exercises](https://github.com/eh3rrera/project-reactor-course/tree/main/08/before/reactor-demo-exercises).
 
 **Note:** If you're creating a new project, you also have to add the following dependency for the first exercise:
 ```xml

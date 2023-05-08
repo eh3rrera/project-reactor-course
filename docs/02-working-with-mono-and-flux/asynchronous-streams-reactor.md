@@ -65,7 +65,7 @@ However, on the javadoc, you'll find the so called "marble diagrams" for all the
 
 ![Marble diagram](images/41.png)
 
-These horizontal lines represent the timeline of publisher. Time flows from left to right:
+The horizontal lines represent the timeline of publisher. Time flows from left to right:
 
 ![Marble diagram - horizontal lines](images/42.png)
 

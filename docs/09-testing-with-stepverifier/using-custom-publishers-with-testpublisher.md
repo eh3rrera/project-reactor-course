@@ -52,7 +52,7 @@ To assert that the publisher has had at least `n` subscribers that have been can
 TestPublisher<T> assertCancelled(int n)
 ```
 
-To assert that the current maximum request of all this publisher's subscribers less than or equal to `n`:
+To assert that the current maximum request of all this publisher's subscribers is less than or equal to `n`:
 ```java
 TestPublisher<T> assertMaxRequested(long n)
 ```
@@ -77,7 +77,7 @@ To assert that this publisher has had no cancelled subscribers:
 TestPublisher<T> assertNotCancelled()
 ```
 
-To assert that this publisher has had a subscriber that saw request overflow, that is received an `onNext` event despite having a requested amount of `0` at the time:
+To assert that this publisher has had a subscriber that saw request overflow, that has received an `onNext` event despite having a requested amount of `0` at the time:
 ```java
 TestPublisher<T> assertRequestOverflow()
 ```
@@ -109,7 +109,7 @@ This method creates a cold `TestPublisher`, which can be subscribed to by multip
 static <T> TestPublisher<T> createColdNonBuffering()
 ```
 
-This other method creates a cold `TestPublisher` non-compliant with the spec according to one or more `TestPublisher.Violations`. `errorOnOverflow` indicates whether to throw an exception if there are more values than request (`true`) or buffer values until request becomes available (`false`):
+This other method creates a cold `TestPublisher` non-compliant with the spec according to one or more `TestPublisher.Violations`. `errorOnOverflow` indicates whether to throw an exception if there are more values than the ones requested (`true`) or buffer values until request becomes available (`false`):
 ```java
 static <T> TestPublisher<T> createColdNonCompliant(
     boolean errorOnOverflow, 

@@ -9,7 +9,7 @@ nav_order: 6
 ---
 Do you remember the map-filter-reduce pattern/model?
 
-Well, we have talked about the `map` operator, the `filter` and other related operators, and now it's time to talk about `reduce`.
+Well, we have talked about the `map`, `filter`, and other related operators. Now it's time to talk about `reduce`.
 
 Reduce is an aggregation operation. An aggregation operation groups a collection of values to compute a single value.
 
@@ -219,7 +219,7 @@ This is the result:
 
 Here are some examples of the available `collect*` operators.
 
-This one collects all elements of the `Flux` into a container using the Java 8 Stream API `Collector`:
+This one collects all elements of the `Flux` into a container using the `Collector` Java 8 Stream API:
 ```java
 Mono<R> collect(
     Collector<? super T,A,? extends R> collector

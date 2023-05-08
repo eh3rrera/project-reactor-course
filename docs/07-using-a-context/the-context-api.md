@@ -57,7 +57,7 @@ However, most of the time, you'll work with `Context`, which extends `ContextVie
 
 About this, putting new values,  you must know that `Context` implementations are thread-safe and immutable, which means that methods that seem to add values to the context, actually create a new `Context` that contains all the current key/value pairs plus the ones you add.
 
-This way, to create a `Context`, you can use `empty` one or of the following `of` methods (all static):
+This way, to create a `Context`, you can use `empty` one or of the following `of` methods (all `static`):
 ```java
 // To return an empty Context
 static Context empty()

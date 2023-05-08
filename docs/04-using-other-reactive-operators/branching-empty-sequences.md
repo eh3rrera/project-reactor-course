@@ -8,7 +8,7 @@ nav_order: 5
 # Branching on Empty Sequences
 ---
 
-In previous modules and lessons, I mentioned that in some cases, an `if` statement inside a `map` or `flatmap` operator can be replaced by another operator. 
+In previous modules and lessons, I mentioned that in some cases, an `if` statement inside a `map` or `flatMap` operator can be replaced by another operator. 
 
 Well, in addition to filter and other operators that can include or exclude elements based on condition (`Predicate`), another popular conditional operation is to return something else when a sequence/stream/collection is empty.
 

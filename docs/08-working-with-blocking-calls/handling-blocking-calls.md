@@ -62,7 +62,7 @@ mono.subscribeOn(Schedulers.boundedElastic()); // 2
 ```
 
 - First, wrap the blocking call in a `Mono` using the method `Mono.fromCallable(Callable)`. (`1`)
-- Then, using `subscribeOn`, you make sure that `Mono` is executed on a thread from `Schedulers.boundedElastic()`. (`2`)
+- Then, using `subscribeOn`, you make sure that the `Mono` is executed on a thread from `Schedulers.boundedElastic()`. (`2`)
 
 Let me explain this step by step.
 
@@ -84,7 +84,7 @@ We could use `publishOn` to switch to another `Scheduler`, but remember, the pla
 
 Finally, the recommendation is to use a bounded elastic scheduler because it is optimized for long executions and the number of active threads is capped.
 
-Previously, `Schedulers.elastic()` was the recommended choice. However, since this scheduler allows the number of active threads to grow indefinitely, its use in highly concurrent environments will result in an explosion of threads and memory. Using `Schedulers.fromExecutorService(ExecutorService)` can be an alternative, but since a bounded elastic scheduler also queues tasks when the limit is reached, in general, it's a better alternative.
+In the past, `Schedulers.elastic()` was the recommended choice. However, since this scheduler allows the number of active threads to grow indefinitely, its use in highly concurrent environments will result in an explosion of threads and memory. Using `Schedulers.fromExecutorService(ExecutorService)` can be an alternative, but since a bounded elastic scheduler also queues tasks when the limit is reached, in general, it's a better alternative.
 
 By the way, the limits can be customized with these versions of the method `Schedulers.newBoundedElastic()`:
 ```java

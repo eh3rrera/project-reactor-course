@@ -180,7 +180,7 @@ flatMap(50) - parallel-5
 subscribe(500) - parallel-5
 ```
 
-As you can see, after `delayElements`, `flatMap` and `subscribe` were executed on a different thread for each element: `parallel-1`, `parallel-2`, `parallel-3`, `parallel-4`, and `parallel-5`.
+As you can see, after `delayElements`, `flatMap`, and `subscribe` were executed on a different thread for each element: `parallel-1`, `parallel-2`, `parallel-3`, `parallel-4`, and `parallel-5`.
 
 In the [documentation of delayElements](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#delayElements-java.time.Duration-), we can read:
 > Delay each of these Flux elements (Subscriber.onNext(T) signals) by a given Duration. *Signals are delayed and continue on the parallel default Scheduler*, but empty sequences or immediate error signals are not delayed.

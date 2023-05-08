@@ -321,7 +321,7 @@ The `verifyLater` method triggers the subscription and prepare for verifications
 
 Also, the first two `verify` methods return a `Duration` object, which represents the actual time the verification took.
 
-For convenience, `StepVerifier.LastStep` also contains some versions of the `verify` method that combine the expectation of a terminal signal and verify.
+For convenience, `StepVerifier.LastStep` also contains some versions of the `verify` method that combine the expectation of a terminal signal and the verification process.
 
 For example, to trigger the verification, expecting a completion signal as terminal event:
 ```java

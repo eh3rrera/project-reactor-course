@@ -8,7 +8,7 @@ nav_order: 3
 # Creating a Sequence
 ---
 
-In the [GitHub repository of this course](https://github.com/eh3rrera/project-reactor-course), go to the folder [02](https://github.com/eh3rrera/project-reactor-course/02) to find the Maven projects for this module in the `before` and `after` directories.
+On the [GitHub repository of this course](https://github.com/eh3rrera/project-reactor-course), go to the folder [02](https://github.com/eh3rrera/project-reactor-course/02) to find the Maven projects for this module in the `before` and `after` directories.
 
 All right.
 
@@ -263,7 +263,7 @@ private Integer getValue() {
 }
 ```
 
-Every time you subscribe to `monoDeferred`, the method `getValue()` will be executed. But if you define the mono without `defer()`:
+Every time you subscribe to `monoDeferred`, the method `getValue()` will be executed. But if you define the `Mono` without `defer()`:
 ```java
 Mono<Integer> monoNotDeferred = Mono.just(getValue());
 ```

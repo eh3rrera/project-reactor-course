@@ -136,7 +136,7 @@ Stream.of(1, 2, 3, 4)
   .forEach(System.out::println);
 ```
 
-And the second one, these operators don't modify the original stream, they create a new one with the transformation applied:
+The second one is that these operators don't modify the original stream, they create a new one with the transformation applied:
 ```java
 Stream originalStream = Stream.of(1, 2, 3, 4);
   Stream filtered = originalStream.filter(i -> i > 2);

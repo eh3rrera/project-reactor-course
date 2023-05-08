@@ -10,7 +10,7 @@ nav_order: 4
 
 In these exercises, you'll practice some of the concepts taught in this module.
 
-First, either create a new Java project, adding the `reactor-bom` and `reactor-core` dependencies to your build file (Maven or Gradle) or use the stub you can find at: [https://github.com/eh3rrera/project-reactor-course/tree/main/05/before/reactor-demo-exercises](https://github.com/eh3rrera/project-reactor-course/tree/main/05/before/reactor-demo-exercises)
+First, either create a new Java project, adding the `reactor-bom` and `reactor-core` dependencies to your build file (Maven or Gradle) or use the stub you can find at: [https://github.com/eh3rrera/project-reactor-course/tree/main/05/before/reactor-demo-exercises](https://github.com/eh3rrera/project-reactor-course/tree/main/05/before/reactor-demo-exercises).
 
 I'll give you the instructions (and sometimes hints) so you can put all the code together in the `main` method of a class and observe the output.
 
@@ -80,7 +80,7 @@ In the following exercise, you'll implement the reactive equivalent of the follo
 4. Implement the reactive equivalent of the above `try-catch-finally` block using the `map`, `doOnError`, `doFinally`, and `subscribe` operators.
 5. Run the `Exercise02` class and analyze the output.
 
-**HINT:** 
+**HINTS:** 
 - Use the `map` operator to double each integer and throw an `IllegalArgumentException` if a negative number is found.
 - Handle the error using the `doOnError` operator, printing the appropriate message.
 - Use the `doFinally` operator to print the appropriate message regardless of whether an error occurred or not. 

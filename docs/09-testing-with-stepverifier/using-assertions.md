@@ -19,31 +19,31 @@ StepVerifier.Assertions hasDiscarded(
 )
 ```
 
-To assert that the tested publisher has discarded at least one element to the `discard` hook:
+To assert that the tested publisher has discarded at least one element:
 ```java
 StepVerifier.Assertions hasDiscardedElements()
 ```
 
-To assert that the tested publisher has dropped at least all of the provided elements to the `Hooks.onNextDropped(Consumer)` hook, in any order:
+To assert that the tested publisher has dropped at least all of the provided elements, in any order:
 ```java
 StepVerifier.Assertions hasDropped(
     Object... values
 )
 ```
 
-To assert that the tested publisher has dropped exactly one error matching the given predicate to the `Hooks.onErrorDropped(Consumer)` hook:
+To assert that the tested publisher has dropped exactly one error matching the given predicate:
 ```java
 StepVerifier.Assertions hasDroppedErrorMatching(
     Predicate<Throwable> matcher
 )
 ```
     
-To assert that the tested publisher has not discarded any element to the `discard` hook:
+To assert that the tested publisher has not discarded any element:
 ```java
 StepVerifier.Assertions hasNotDiscardedElements()
 ```
 
-To assert that the tested publisher has not dropped any error to the `Hooks.onErrorDropped(Consumer)` hook:
+To assert that the tested publisher has not dropped any error:
 ```java
 StepVerifier.Assertions hasNotDroppedErrors()
 ```

@@ -46,7 +46,7 @@ void example_02_FilterDoesntReturnFlux() {
 }
 ```
 
-Where, if we pass a sequence that contains `5` and `12`, we expect `12`. If we only pass `5`, we expect `0` (the default value).
+Where, if we pass a sequence that contains `5` and `12`, we should expect `12`. If we only pass `5`, we should expect `0` (the default value).
 
 In this case, we're relying on the value returned by `defaultIfEmpty` to test if this operator was executed.
 
