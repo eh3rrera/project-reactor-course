@@ -241,7 +241,7 @@ String key = "multiplier";
 Mono<Integer> monoInteger = Mono.just(1)
     .flatMap(i -> Mono.deferContextual(ctx -> {
                         System.out.println(
-                            "flatMap1: " +ctx
+                            "flatMap1: " + ctx
                         );
                         return Mono.just(i);
                     }

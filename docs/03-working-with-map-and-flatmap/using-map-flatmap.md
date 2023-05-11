@@ -8,7 +8,7 @@ nav_order: 4
 # Using map and flatMap
 ---
 
-A common question people often ask is when to use `map` instead `flatMap`?
+A common question people often ask is when to use `map` instead of `flatMap`?
 
 Well, to answer this, you need to ask two questions:
 1. Are you transforming the elements synchronously or asynchronously?

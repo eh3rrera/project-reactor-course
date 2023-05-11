@@ -211,5 +211,5 @@ java.lang.AssertionError: expectation failed (expected no event: onNext(1))
 
 The reason is that the first element is emitted after five hours but `expectNoEvent(Duration)` expects that in twenty hours no event happens. 
 
-Also, according to the documentation of `expectNoEvent(Duration)`:
+Also, according to the [documentation of `expectNoEvent(Duration)`](https://projectreactor.io/docs/test/release/api/reactor/test/StepVerifier.Step.html#expectNoEvent-java.time.Duration-):
 > ... avoid using this method at the end of the set of expectations: prefer `expectTimeout(Duration)` rather than `expectNoEvent(...).thenCancel()`.

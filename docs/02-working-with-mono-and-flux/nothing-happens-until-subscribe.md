@@ -153,7 +153,7 @@ Mono.just(1)
 However, something to be aware of is that [the version that takes an argument of type Consumer<? super Subscription>](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#subscribe-java.util.function.Consumer-java.util.function.Consumer-java.lang.Runnable-java.util.function.Consumer-) is deprecated for `Flux` and it is removed in Reactor 3.5. This version was useful because, with the `Subscription` object, you can modify the amount of data the publisher sends (backpressure). Here's an example:
 ```java
 Flux.just(1, 2, 3)
-    .subscribe( // It's marked as deprecated
+    .subscribe( // It can be marked as deprecated or give an error
             System.out::println,
             null,
             null,

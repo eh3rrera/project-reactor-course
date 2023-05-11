@@ -61,7 +61,7 @@ In that case, we'd need a way to know whether a `Publisher` was executed or not 
 Fortunately, Reactor provides the interface `PublisherProbe`, which acts as an [instrumented](https://stackoverflow.com/a/8755337/3593852) `Publisher` (probe), capturing subscription, cancellation, and request events that can be checked with the methods:
 ```java
 // Returns how many times 
-// probe was subscribed
+// probe was subscribed.
 long subscribeCount()
 
 // Returns true if the probe 

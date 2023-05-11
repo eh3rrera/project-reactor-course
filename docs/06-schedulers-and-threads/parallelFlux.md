@@ -11,7 +11,7 @@ In Reactor, you can easily parallelize work with `ParallelFlux`, which publishes
 
 ![rails](images/101.png)
  
-`ParallelFlux` is another implementation of the `Publisher` interface but is not a subclass of `Flux`, it implements its own versions of operators such as `concatMap`, `filter`, `map`, and `flatMap`, just to mention a few. You can review all the operators it implements on its [javadoc](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/ParallelFlux.html) page (in particular, it does not have a `doFinally` lifecycle hook). 
+`ParallelFlux` is another implementation of the `Publisher` interface but is not a subclass of `Flux`, it implements its own versions of operators such as `concatMap`, `filter`, `map`, and `flatMap`, just to mention a few. You can review all the operators it implements on its [javadoc](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/ParallelFlux.html) page (in particular, it does not have a `doFinally` life cycle hook). 
 
 Having said that, you create a `ParallelFlux` from an existing `Flux` using the `parallel` method:
 ```java

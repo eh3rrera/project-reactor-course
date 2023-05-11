@@ -129,7 +129,7 @@ static <T> TestPublisher<T> createNoncompliant(
 As you can see, there are two types of publishers, *hot* and *cold*. For this reason, there are three types of `TestPublisher` instances you can create:
 - Hot
 - Cold
-- Noncompliant (according to the [Reactive Streams specification](https://www.reactive-streams.org/))
+- Non-compliant (according to the [Reactive Streams specification](https://www.reactive-streams.org/))
 
 Until now, we've been working with *cold* publishers:
 - Nothing happens until there's a subscriber
