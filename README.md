@@ -2,8 +2,8 @@
 In this course, you'll learn how to use [Project Reactor](https://projectreactor.io) to program in a non-blocking, reactive way. You can view it completely free [here](https://eherrera.net/project-reactor-course/).
 
 But if you want to support my work, you can buy the book on:
-  - [Leanpub as EPUB (PDF coming soon)](https://leanpub.com/unraveling-project-reactor)
-  - [Amazon as e-book (paperback coming soon)](https://www.amazon.com/dp/B0C3PWZH1Q)
+  - [Leanpub as EPUB and PDF](https://leanpub.com/unraveling-project-reactor)
+  - [Amazon as e-book and paperback](https://www.amazon.com/dp/B0C3PWZH1Q)
 
 
 # Contributing
