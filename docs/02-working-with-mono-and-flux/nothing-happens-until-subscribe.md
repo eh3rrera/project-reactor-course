@@ -92,7 +92,7 @@ public interface Disposable {
 }
 ```
 
-So, if we subscribe to the following `Mono` this way:
+If we subscribe to the following `Mono` this way:
 ```java
 Mono.just(1).subscribe();
 ```
