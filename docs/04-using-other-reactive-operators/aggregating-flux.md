@@ -267,10 +267,10 @@ For `collectMap`, the next example uses the version that takes a key and a value
 Flux<Integer> integerFlux = 
     Flux.just(11, 22, 33, 34);
 
-Mono<Map<Integer, Collection<Integer>>> monoMap =
-    integerFlux.collectMultimap(
-            i -> i / 10,
-            i -> i % 10
+Mono<Map<Integer, Integer>> monoMap = 
+    integerFlux.collectMap(
+                i -> i / 10,
+                i -> i % 10
     );
 
 monoMap.subscribe(System.out::println);
