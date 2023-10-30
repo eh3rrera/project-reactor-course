@@ -47,12 +47,15 @@ Thanks!
 ### 2023-10-29
 - In the section Aggregating a Flux, fixed example for `collectMap`. Thanks to [LeQuiLong7](https://github.com/LeQuiLong7).
 
+---
 ### 2023-05-11
 - Typos and minor errors fixed
 
+---
 ### 2023-04-26
 - Course/book complete
 
+---
 ### 2022-06-07
 - Added content of module 02 - Working with Mono and Flux
 - Updates to content of module 01
