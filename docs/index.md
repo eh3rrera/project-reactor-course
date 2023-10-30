@@ -44,6 +44,9 @@ Thanks!
 
 ## Changelog
 
+### 2023-10-29
+- In the section Aggregating a Flux, fixed example for `collectMap`. Thanks to [LeQuiLong7](https://github.com/LeQuiLong7).
+
 ### 2023-05-11
 - Typos and minor errors fixed
 
