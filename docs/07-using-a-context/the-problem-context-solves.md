@@ -35,7 +35,7 @@ These solutions have more downsides than benefits.
 
 The solution Reactor provides is a feature called [Context](https://projectreactor.io/docs/core/release/api/reactor/util/context/Context.html) (the good part in the article).
 
-A `Context` is a key/value store (like a [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html)) that allows us to store data associated with a particular `Publisher` rather than a particular thread (like `ThreadLocal` does).
+A `Context` is a key/value store (like a [Map](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html)) that allows us to store data associated with a particular `Subscriber` rather than a particular thread (like `ThreadLocal` does).
 
 This `Context` is populated at subscription time and propagated throughout the whole sequence so it can be accessed at any moment by any operator.
 
