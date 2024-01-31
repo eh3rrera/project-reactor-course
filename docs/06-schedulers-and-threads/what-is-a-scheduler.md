@@ -8,7 +8,7 @@ nav_order: 1
 # What is a Scheduler?
 ---
 
-The concept of a scheduler is closely related to the concpet of a thread.
+The concept of a scheduler is closely related to the concept of a thread.
 
 A thread is usually defined as a lightweight process, but it can also be seen as a path of execution in a program.
 
