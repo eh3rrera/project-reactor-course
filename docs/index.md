@@ -44,6 +44,16 @@ Thanks!
 
 ## Changelog
 
+### 2024-01-31
+- Fix typo at the beginning of chapter 25. Thanks to [vicziani](https://github.com/vicziani).
+
+---
+
+### 2023-10-30
+- In the section The Problem a Context Solves, replaced `Publisher` with `Subscriber`. Thanks to [LeQuiLong7](https://github.com/LeQuiLong7).
+
+---
+
 ### 2023-10-29
 - In the section Aggregating a Flux, fixed example for `collectMap`. Thanks to [LeQuiLong7](https://github.com/LeQuiLong7).
 
