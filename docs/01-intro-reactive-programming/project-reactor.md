@@ -69,7 +69,7 @@ The whole functionality of Reactor is divided into many artifacts:
 For example:
 - `reactor-core` is the artifact with the main classes of the library.
 - `reactor-test` contains the classes for testing reactive streams.
-- And `reactor-netty` if for building TCP, UDP, and HTTP servers and clients based on the Netty network application framework, among others.
+- And `reactor-netty` is for building TCP, UDP, and HTTP servers and clients based on the Netty network application framework, among others.
 
 If you only use one or two of these artifacts, you can always add these artifacts directly to your POM or `build.gradle` file.
 
