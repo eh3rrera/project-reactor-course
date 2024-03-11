@@ -20,7 +20,7 @@ Let's break down this definition.
 - The third generation brought compatibility between reactive libraries with the Reactive-Streams specification (more on this next).
 - Finally, fourth-generation libraries add optimizations to many operators for performance benefits.
 
-**Based on the [Reactive Streams specification](https://www.reactive-streams.org)**. This specification defines a set of interfaces, methods, and protocols to process streams asynchronously and with backpressure capabilities. Libraries implementing this specification can add features more features, but they must pass the test suites provided by a Technology Compatibility Kit (TCK) and provide an [API that consists of the following components](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.3/README.md#api-components):
+**Based on the [Reactive Streams specification](https://www.reactive-streams.org)**. This specification defines a set of interfaces, methods, and protocols to process streams asynchronously and with backpressure capabilities. Libraries implementing this specification can add more features, but they must pass the test suites provided by a Technology Compatibility Kit (TCK) and provide an [API that consists of the following components](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.3/README.md#api-components):
 - Publisher
 - Subscriber
 - Subscription
