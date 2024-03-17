@@ -82,7 +82,7 @@ Mono<Integer> emptyMono1 = Mono.justOrEmpty(Optional.empty());
 Mono<Integer> emptyMono2 = Mono.justOrEmpty(null); 
 ```
 
-Now, you can create create `Mono` and `Flux` objects from other objects with the methods `from*()`. Of course, due to the difference in cardinality, `Mono` and `Flux` have different `from*()` methods.
+Now, you can create `Mono` and `Flux` objects from other objects with the methods `from*()`. Of course, due to the difference in cardinality, `Mono` and `Flux` have different `from*()` methods.
 
 There are `from*()` methods to create a `Mono` from another `Publisher`:
 ```java
@@ -118,7 +118,7 @@ static <T> Mono<T> fromCompletionStage(
 
 I want to highlight three things here.
 
-One. The difference between `from` and `fromDirect` is that the first one will cancel the publisher passed as an argument after the first element. Take example the following code:
+One. The difference between `from` and `fromDirect` is that the first one will cancel the publisher passed as an argument after the first element. Take for example the following code:
 ```java
 Flux<Integer> integerFlux = Flux.just(1, 2);
 Mono<Integer> mono1 = Mono.from(integerFlux);
