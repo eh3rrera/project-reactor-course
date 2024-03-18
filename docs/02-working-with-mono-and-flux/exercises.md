@@ -77,7 +77,7 @@ In this exercise, you will create a `Publisher` that emits more than one value a
 
 ## Exercise 3
 In this exercise, you will create a `CompletableFuture` that emits a value and use the [Mono.fromFuture](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html#fromFuture-java.util.concurrent.CompletableFuture-) method to convert it to a `Mono`.
-1. First, create create a class named `Exercise03` with a `main` method.
+1. First, create a class named `Exercise03` with a `main` method.
 2. Add the following method to the class (also adding the corresponding `import` statements):
     ```java
     private static CompletableFuture<String> createCompletableFuture() {
@@ -94,7 +94,7 @@ In this exercise, you will create a `CompletableFuture` that emits a value and u
 
 ## Exercise 4
 In this exercise, you will create a `Supplier` that provides a `Publisher` and use the [Flux.defer](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#defer-java.util.function.Supplier-) method to lazily instantiate the `Publisher` every time a subscription is made on the resulting `Flux`.
-1. First, create create a class named `Exercise04` with a `main` method.
+1. First, create a class named `Exercise04` with a `main` method.
 2. Add the following method to the class (also adding the corresponding `import` statement):
     ```java
     private static Supplier<Publisher<String>> createPublisherSupplier() {

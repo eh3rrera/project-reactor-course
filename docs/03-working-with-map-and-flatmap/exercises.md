@@ -20,7 +20,7 @@ Here you can find the solution for the coding exercises: [https://github.com/eh3
 
 ## Exercise 1
 Given a `Flux` of `Integer` values, your task is to transform each value to its hex string representation.
-1. First, create create a class named `Exercise01` with a `main` method.
+1. First, create a class named `Exercise01` with a `main` method.
 2. Create a `Flux` that emits a sequence of `Integer` values. Let's say, from `10` to `14`.
 3. Apply the map method to the Flux to transform each emitted value to its hex string representation using something like `String.format("0x%08X", value)`.
 4. Subscribe to the transformed `Flux`, printing the emitted items.
@@ -30,7 +30,7 @@ Given a `Flux` of `Integer` values, your task is to transform each value to its 
 
 ## Exercise 2
 Given a `Mono` that emits an `Integer` value, your task is to transform the emitted value by fetching its square from a separate asynchronous method that returns a `Mono`.
-1. First, create create a class named `Exercise02` with a `main` method.
+1. First, create a class named `Exercise02` with a `main` method.
 2. Create a `Mono` that emits a single `Integer` value.
 3. Implement the following method so that it returns a `Mono<Integer>` representing the square of the input number:
     ```java
@@ -47,11 +47,11 @@ Given a `Mono` that emits an `Integer` value, your task is to transform the emit
 
 ## Exercise 3
 Given a `Flux` that emits a sequence of `Integer` values, your task is to transform each emitted value into a `Flux` that emits the value and its square.
-1. First, create create a class named `Exercise03` with a `main` method.
+1. First, create a class named `Exercise03` with a `main` method.
 2. Create a `Flux` that emits a sequence of `Integer` values. Let's say from 1 to 5.
 3. Implement the following method so that it returns a `Flux<Integer>` that emits the input number and its square:
     ```java
-    private static Mono<Integer> getNumberAndSquare(Integer value) {
+    private static Flux<Integer> getNumberAndSquare(Integer value) {
         // TODO: Create a Flux publisher that emits the input number and its square
         return null;
     }
@@ -75,7 +75,7 @@ private static Iterable<Integer> getNumberAndSquare(Integer value) {
 
 ## Exercise 5
 In this exercise, you'll use the `map` and `flatMap` operators to transform a `Flux` sequence.
-1. First, create create a class named `Exercise05` with a `main` method.
+1. First, create a class named `Exercise05` with a `main` method.
 2. Create a `Flux` that emits a sequence of `Integer` values. Let's say from 1 to 5.
 3. Use a `map` operator to triple each emitted value.
 4. Next, use a `flatMap` operator to create a new `Flux` that emits the tripled value and its square.
