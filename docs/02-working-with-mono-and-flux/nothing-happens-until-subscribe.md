@@ -34,7 +34,7 @@ So always remember:
 
 But, what are the options to subscribe to a `Publisher`?
 
-In Reactor, we have many versions of the `subscribe` method for `Mono` and `Flush`.
+In Reactor, we have many versions of the `subscribe` method for `Mono` and `Flux`.
 
 For example, to subscribe to the publisher and request elements without limits:
 ```java
