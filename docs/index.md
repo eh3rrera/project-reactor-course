@@ -44,6 +44,11 @@ Thanks!
 
 ## Changelog
 
+### 2025-07-27
+- Fix typo in chapter 09. Thanks to [lsc4719](https://github.com/lsc4719).
+
+---
+
 ### 2024-03-10
 - Fix typos in chapter 05. Thanks to [pladenn](https://github.com/pladenn).
 
